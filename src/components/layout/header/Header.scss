@@ -1,0 +1,17 @@
+.header{
+display: flex;
+align-items: center;
+justify-content: space-around;
+// gap: 200px;
+    .icon{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+
+        .search-inp{
+            display: flex;
+            gap: 5px;
+        }
+    }
+}

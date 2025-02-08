@@ -1,0 +1,15 @@
+.banner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 200px;
+ 
+
+    .banner-text{
+
+        h1{
+            font-size: 100px;
+            color: red;
+        }
+    }
+}
