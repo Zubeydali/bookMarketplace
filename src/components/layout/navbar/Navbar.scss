@@ -1,5 +1,7 @@
 *{
-    list-style: none
+    list-style: none;
+    text-decoration: none;
+    
 }
 
 
@@ -8,4 +10,8 @@ ul{
     align-items: center;
     justify-content: center;
     gap: 40px;
+
+    a{
+        color: white;
+    }
 }

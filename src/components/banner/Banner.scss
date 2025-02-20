@@ -3,13 +3,26 @@
     align-items: center;
     justify-content: center;
     gap: 200px;
- 
+    background-image: url(/src/assets/media/banner-img.jpg);
+ height: 1000px;
+ background-repeat: no-repeat;
+ background-size: cover;
 
     .banner-text{
-
+width: 500px;
+margin-left: 800px;
+font-family: Georgia, 'Times New Roman', Times, serif;
+button{
+    background-color:rgb(177, 10, 10) ;
+    color: white;
+    width: 100px;
+    height: 40px;
+    border-radius: 40px;
+    border: 1px solid white;
+}
         h1{
-            font-size: 101px;
-            color: red;
+            font-size: 70px;
+            color: rgb(177, 10, 10);
         }
     }
 }
