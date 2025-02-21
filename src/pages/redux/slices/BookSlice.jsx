@@ -23,6 +23,7 @@ export const bookSlice = createSlice({
     initialState,
     reducers: {
         setSelectedBook:(state,action)=>{
+            console.log("Selected Book in reducer:", action.payload);
 state.selectedBook=action.payload
         }
 
@@ -33,6 +34,7 @@ state.selectedBook=action.payload
             state.loading = true;
         })
         builder.addCase(getAllBooks.fulfilled, (state, action) => {
+            console.log(action.payload)
             state.loading = false
             state.books = action.payload;
         })

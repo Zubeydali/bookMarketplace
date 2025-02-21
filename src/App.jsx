@@ -30,10 +30,11 @@ const dispatch=useDispatch()
     <Drawer  className='drawer' onClose={()=>dispatch(setDrawer())} anchor='left' open={drawer} >
       {
   books && books.map((book)=>{
+    return(
 <div>
   <img src={book.image}alt="" />
   <p>{book.price}</p>
-</div>
+</div>)
   })}
   </Drawer>
     </>

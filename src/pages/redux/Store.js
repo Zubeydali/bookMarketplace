@@ -5,8 +5,9 @@ import basketSlice  from './slices/BasketSlices'
 
 export const store = configureStore({
   reducer: {
-    // app: appSlice.reducer,
+    app: appSlice,
     book: bookSlice,
     basket: basketSlice
   },
+  devTools:process.env.NODE_ENV !=="production",
 })

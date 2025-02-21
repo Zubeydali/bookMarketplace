@@ -8,10 +8,14 @@ const getBasketFromStorage = () => {
 
 const writeFromBasketToStorage = (basket) => {
     try {
-        localStorage.setItem("basket", JSON.stringify(basket)); 
-      } catch (error) {
-        console.error("localStorage yazılarkən səhv baş verdi:", error); 
-      }
+        if (!basket || !Array.isArray(basket)) {
+            console.error("Səbət məlumatı düzgün deyil:", basket);
+            return;
+        }
+        localStorage.setItem("basket", JSON.stringify(basket));
+    } catch (error) {
+        console.error("localStorage yazılarkən xəta baş verdi:", error);
+    }
     };
 
 
@@ -30,25 +34,26 @@ export const basketSlice = createSlice(
         reducers: {
             addToBasket: (state, action) => {
                 console.log(action);
+                JSON.parse(JSON.stringify(state.books))
                 
-                const findBook = state.books && state.books.find((book) =>book._id===action.payload.id);
+                const findBook = state.books && state.books.find((book) =>String(book._id)===String(action.payload.id));
 
                 console.log(state.books);
                 
                 if (findBook) {
-                  const extratedBook=  state.books.filter((book)=>book._id !==action.payload.id)
-                  findBook.count+=action.payload.count
-                  state.books=[...extratedBook,findBook]
-                  writeFromBasketToStorage(state.books)
-                   console.log(extratedBook)
+                    state.books = state.books.map(book =>
+                        String(book._id) === String(action.payload.id)
+                            ? { ...book, count: book.count + action.payload.count }
+                            : book
+                    );
+                } else {
+                    state.books.push(action.payload);
                 }
-                else {
-                    state.books = [...state.books, action.payload]
-                    writeFromBasketToStorage(state.books)
-                }
-            },
-            setDrawer:(state)=>{
-                state.drawer=!state.drawer;
+                console.log("Yenilənmiş Redux state:", JSON.parse(JSON.stringify(state.books)));
+                writeFromBasketToStorage(state.books);
+            },            
+            setDrawer: (state) => {
+                state.drawer = !state.drawer;
             }
         }
     }

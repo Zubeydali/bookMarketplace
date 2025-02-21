@@ -6,10 +6,12 @@ import Badge from '@mui/material/Badge';
 import { useDispatch, useSelector } from 'react-redux';
 import Drawer from '@mui/material/Drawer';
 import { setDrawer } from '../../../pages/redux/slices/BasketSlices';
+import Books from '../../books/Books';
 
 function Header() {
   const navigate=useNavigate();
   const{books}=useSelector((store)=>store.basket)
+ 
   const dispatch=useDispatch()
   return (
     <>
@@ -25,7 +27,7 @@ function Header() {
           </div>
           
 
-    <Badge onClick={()=>dispatch(setDrawer())} badgeContent={books.lenght} color="primary">
+    <Badge onClick={()=>dispatch(setDrawer())} badgeContent={books.length} color="primary">
     <i className="fa-solid fa-basket-shopping"></i>
     </Badge>
   
