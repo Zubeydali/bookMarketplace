@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import "./Books.scss"
 
 function Books({ book }) {
   if (!book) return null;
@@ -10,14 +11,10 @@ function Books({ book }) {
     <>
       <div className="container">
         <div className="cards">
-          <div className="card"> <p>
-            {
-              book?.name
-            }
-          </p>
-            <p>{book?.price}</p>
+          <div className="card"> 
             <img src={book?.Image} alt="" />
-
+         <b>   <p>{ book?.name}</p></b>
+            <p>{book?.price}</p>
             <button onClick={()=>navigate(`/book-details/${_id}`)}>detail</button>
 
           </div>

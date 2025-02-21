@@ -3,12 +3,14 @@ import Navbar from '../navbar/Navbar'
 import "./Header.scss"
 import { useNavigate } from 'react-router-dom'
 import Badge from '@mui/material/Badge';
-import { useSelector } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
+import Drawer from '@mui/material/Drawer';
+import { setDrawer } from '../../../pages/redux/slices/BasketSlices';
 
 function Header() {
   const navigate=useNavigate();
   const{books}=useSelector((store)=>store.basket)
+  const dispatch=useDispatch()
   return (
     <>
       <div className="header">
@@ -18,17 +20,17 @@ function Header() {
         <Navbar></Navbar>
         <div className="icon">
           <div className="search-inp">
-            <input type="text" />
+            <input className='inp'  type="text" />
             <i className="fa-solid fa-magnifying-glass"></i>
           </div>
           
 
-    <Badge badgeContent={books.lenght} color="primary">
+    <Badge onClick={()=>dispatch(setDrawer())} badgeContent={books.lenght} color="primary">
     <i className="fa-solid fa-basket-shopping"></i>
     </Badge>
   
 
-
+    
        
           <i className="fa-solid fa-heart"></i>
         </div>

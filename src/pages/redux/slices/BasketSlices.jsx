@@ -7,15 +7,18 @@ const getBasketFromStorage = () => {
 }
 
 const writeFromBasketToStorage = (basket) => {
-    localStorage.setItem("basket", JSON.stringify(basket))
-    console.log(writeFromBasketToStorage, "basket")
-    console.log("aaaa");
-    
-}
+    try {
+        localStorage.setItem("basket", JSON.stringify(basket)); 
+      } catch (error) {
+        console.error("localStorage yazılarkən səhv baş verdi:", error); 
+      }
+    };
+
 
 
 const initialState = {
     books: getBasketFromStorage(),
+    drawer:false
 }
 
 
@@ -28,25 +31,29 @@ export const basketSlice = createSlice(
             addToBasket: (state, action) => {
                 console.log(action);
                 
-                const findBook = state.books && state.books.find((book) => book._id === action.payload._id);
+                const findBook = state.books && state.books.find((book) =>book._id===action.payload.id);
 
-                console.log(findBook);
+                console.log(state.books);
                 
                 if (findBook) {
-                  const extratedBook=  state.books.filter((book)=>book._id !==action._id)
+                  const extratedBook=  state.books.filter((book)=>book._id !==action.payload.id)
                   findBook.count+=action.payload.count
                   state.books=[...extratedBook,findBook]
                   writeFromBasketToStorage(state.books)
+                   console.log(extratedBook)
                 }
                 else {
                     state.books = [...state.books, action.payload]
                     writeFromBasketToStorage(state.books)
                 }
+            },
+            setDrawer:(state)=>{
+                state.drawer=!state.drawer;
             }
         }
     }
 )
 
-export const { addToBasket } = basketSlice.actions
+export const { addToBasket,setDrawer } = basketSlice.actions
 
 export default basketSlice.reducer

@@ -1,0 +1,27 @@
+.container{
+background-color: #D7D7D7;
+padding-top: 10%;
+    .cards{
+        display:  flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        
+        
+            .card{
+                width: 350px;
+                height: 550px;
+                background-color: #810606;
+                border-radius: 40px;
+              color: white;
+              text-align: center;
+              font-size: 25px;
+              line-height: 4px;
+        
+        
+                img{
+                  margin: 5%;
+                }
+            }
+        }
+}
