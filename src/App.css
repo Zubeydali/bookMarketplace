@@ -1,4 +1,12 @@
-/* .drawer{
+.drawer{
     width: 600px;
     background-color: red;
-} */
+
+    img{
+        width: 200px;
+        height: 100px;
+        object-fit: cover;
+        visibility: visible;
+    }
+}
+

@@ -17,14 +17,15 @@ function Header() {
     <>
       <div className="header">
         <div className="logo" onClick={()=>navigate("/")}>
-          <img src="/src/assets/media//photo_5312316015176183082_x.jpg" alt="" />
+          <img src="/src/assets/media/LibrX-removebg-preview.png" alt="" />
         </div>
-        <Navbar></Navbar>
-        <div className="icon">
-          <div className="search-inp">
+        <div className="search-inp">
             <input className='inp'  type="text" />
             <i className="fa-solid fa-magnifying-glass"></i>
           </div>
+        <Navbar></Navbar>
+        <div className="icon">
+         
           
 
     <Badge onClick={()=>dispatch(setDrawer())} badgeContent={books.length} color="primary">

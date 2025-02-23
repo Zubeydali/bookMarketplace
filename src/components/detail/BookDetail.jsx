@@ -5,7 +5,7 @@ import { setSelectedBook } from '../../pages/redux/slices/BookSlice'
 import { CiCirclePlus } from "react-icons/ci";
 import { CiCircleMinus } from "react-icons/ci";
 import "./Detail.scss"
-import { addToBasket } from '../../pages/redux/slices/BasketSlices';
+import { addToBasket, calculateBasket } from '../../pages/redux/slices/BasketSlices';
 import { store } from '../../pages/redux/Store';
 
 
@@ -42,6 +42,7 @@ function BookDetail() {
     }
     console.log(payload);
     dispatch(addToBasket(payload));
+    dispatch(calculateBasket())
   }
   useEffect(() => {
 

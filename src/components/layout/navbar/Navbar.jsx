@@ -6,10 +6,10 @@ function Navbar() {
   return (
 <ul>
   {/* <Link to='/'><li>Home</li></Link> */}
-    <li><Link to='/'>Home</Link></li>
-    <li><Link>BookStore</Link></li>
-    <li><Link>About </Link></li>
-    <li><Link>Contact</Link></li>
+    <li><Link to='/'><b>Home</b></Link></li>
+    <li><Link><b>BookStore</b></Link></li>
+    <li><Link><b>about</b> </Link></li>
+    <li><Link><b>Contact</b></Link></li>
    
 </ul>
   )

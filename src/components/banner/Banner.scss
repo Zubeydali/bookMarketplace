@@ -2,18 +2,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 200px;
-    background-image: url(/src/assets/media/banner-img.jpg);
+    // gap: 50px;
+    // background-image: url(/src/assets/media/Adobe\ Express\ -\ file.png);
  height: 1000px;
- background-repeat: no-repeat;
- background-size: cover;
+//  background-repeat: no-repeat;
+//  background-size: cover;
+
+
+
+
+ .banner-img{
+    width: 500px;
+    img{
+       
+        height: 100vh;
+    }
+ }
 
     .banner-text{
-width: 500px;
-margin-left: 800px;
-font-family: Georgia, 'Times New Roman', Times, serif;
+
 button{
-    background-color:rgb(177, 10, 10) ;
+    background-color:rgb(15, 15, 133) ;
     color: white;
     width: 100px;
     height: 40px;
@@ -22,7 +31,7 @@ button{
 }
         h1{
             font-size: 70px;
-            color: rgb(177, 10, 10);
+            color: rgb(15, 15, 142);
         }
     }
 }
